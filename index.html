@@ -217,8 +217,31 @@
             .services h2 { font-size: 1.6rem; }
             .location-container { text-align: center; }
         }
+        /* --- FAQ (DÚVIDAS FREQUENTES) --- */
+.faq { padding: 80px 20px; background-color: var(--primary-bg); }
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq h2 { text-align: center; margin-bottom: 40px; color: var(--text-main); font-size: 2rem; }
+.faq-item { border-bottom: 1px solid var(--light-gray); padding: 15px 0; cursor: pointer; transition: 0.3s; }
+.faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--text-main); font-size: 1.1rem; }
+.faq-item:hover .faq-question { color: var(--accent-orange); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: #555; font-size: 0.95rem; line-height: 1.6; }
+.faq-answer p { padding-top: 15px; padding-bottom: 5px; }
+.faq-icon { font-size: 1.5rem; color: var(--accent-orange); transition: transform 0.3s ease; font-weight: 400; }
+.faq-item.active .faq-answer { max-height: 300px; }
+.faq-item.active .faq-icon { transform: rotate(45deg); }
     </style>
 </head>
+    <script>
+    // Script do FAQ (Sanfona)
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+            // Fecha os outros (opcional, mas deixa o layout mais limpo)
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        });
+    });
+</script>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -290,7 +313,31 @@
             </div>
         </div>
     </section>
+<section class="faq" id="duvidas">
+    <div class="faq-container">
+        <h2>Dúvidas Frequentes</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">O tratamento de unha encravada dói? <span class="faq-icon">+</span></div>
+            <div class="faq-answer"><p>Nosso foco é o seu conforto. Utilizamos técnicas modernas e equipamentos de ponta que tornam o procedimento extremamente seguro, rápido e com o mínimo de desconforto possível, garantindo alívio imediato.</p></div>
+        </div>
 
+        <div class="faq-item">
+            <div class="faq-question">Vocês atendem por plano de saúde? <span class="faq-icon">+</span></div>
+            <div class="faq-answer"><p>Para garantir um padrão ouro de atendimento, com tempo dedicado e materiais premium de alta tecnologia, nossos atendimentos são exclusivamente particulares. Fornecemos recibo para que você possa solicitar reembolso junto ao seu convênio, caso ele possua essa modalidade.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">A laserterapia serve para o meu caso? <span class="faq-icon">+</span></div>
+            <div class="faq-answer"><p>A laserterapia é altamente eficaz para micoses (fungos), inflamações e cicatrização. Durante a sua avaliação inicial, analisaremos a necessidade exata e montaremos um protocolo personalizado para o seu pé.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Diabéticos podem fazer tratamento com vocês? <span class="faq-icon">+</span></div>
+            <div class="faq-answer"><p>Sim! Somos especialistas em profilaxia do Pé Diabético. Temos protocolos rigorosos de biossegurança e manuseio delicado para garantir 100% de segurança e evitar qualquer tipo de complicação.</p></div>
+        </div>
+    </div>
+</section>
     <section class="location" id="contato">
         <div class="location-container">
             <div>
